@@ -132,7 +132,7 @@ def train_epoch(epoch, model, train_dataset_loader, criterion, optimizer, n_clas
         ind = batch['ind'][0]
         dist = batch['dist'][0].to(device)
         fname = batch['file'][0]
-        supervisor = CADCSupervisor(th=0, fname=fname)
+        supervisor = CADCSupervisor(th=1e-9, fname=fname)
         optimizer.zero_grad()
         logit = model(data, dist, ind)
         # feats = process_logit(logit, label)
@@ -184,7 +184,7 @@ def validate_epoch(epoch, model, val_dataset_loader, criterion, n_classes, class
             ind = batch['ind'][0]
             dist = batch['dist'][0].to(device)
             fname = batch['file'][0]
-            supervisor = CADCSupervisor(th=0, fname=fname)
+            supervisor = CADCSupervisor(th=1e-9, fname=fname)
             logit = model(data, dist, ind)
             # feats = process_logit(logit, label)
             # loss =  criterion(logit, label)

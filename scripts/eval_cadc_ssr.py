@@ -93,7 +93,7 @@ def main(args):
             ind = batch['ind'][0]
             dist = batch['dist'][0].to(device)
             fname = batch['file'][0]
-            supervisor = CADCSupervisor(th=0, fname=fname)
+            supervisor = CADCSupervisor(th=1e-9, fname=fname)
             supervision = supervisor(data, dist, ind)
 
 

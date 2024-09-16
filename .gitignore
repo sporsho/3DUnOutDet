@@ -1,0 +1,10 @@
+scripts/train_WADS_pointnet_backend.py
+scripts/eval_wads_pointnet.py
+scripts/eval_quality_desnowing.py
+modules/pointnet/*
+dataset/unsupervised/_dsor.py
+dataset/utils/cadc_json_to_kitti.py
+dataset/utils/point_stat_wads.py
+dataset/cadc_move_images.py
+dataset/copy_anno_cadc.py
+dataset/restructure_cadc_folder.py

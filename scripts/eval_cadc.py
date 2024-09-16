@@ -64,7 +64,7 @@ def main(args):
 
     # prepare dataset
     tree_k = int(np.round(args.K * args.K))
-    test_dataset = CADCPointCloudDataset(device, data_path + '/sequences/', imageset='test', k=tree_k,
+    test_dataset = CADCPointCloudDataset(device, data_path + '/sequences/', imageset='all', k=tree_k,
                                          desnow_root=args.desnow_root, pred_folder=args.pred_folder,
                                          snow_label=args.snow_label, recalculate=False, save_ind=False)
     if test_dataset.save_ind:
@@ -105,6 +105,7 @@ def main(args):
             # pcd = pcd[inlier]
             # pcd = pcd.reshape(-1).astype(np.float32)
             # out_file = fname.replace('CADC_V2', 'CADC_OUTDET')
+            # pcd.tofile(out_file)
             out_file = fname.replace('velodyne', 'predictions')
             out_file = out_file[:-3] + "label"
             os.makedirs(os.path.dirname(out_file), exist_ok=True)

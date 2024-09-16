@@ -62,7 +62,7 @@ class CADCSupervisor(nn.Module):
         standard_ki = ki * dist[:, :5] * dist[:, :5]
         fft = torch.fft.fft(standard_ki, dim=1, norm='backward')
         fft_norm = fft.norm(p=2, dim=1)
-        sup = torch.where(fft_norm > self.th, 0, 1)
+        sup = torch.where(fft_norm >= self.th, 0, 1)
         return sup.reshape(-1)
 
 class KITTISupervisor(Supervisor):
